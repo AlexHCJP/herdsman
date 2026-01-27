@@ -1,7 +1,9 @@
 name: herdsman
 description: Manage Git hooks in a centralized way. Analog husky in JS
 version: 0.0.1
-repository: https://github.com/my_org/my_repo
+repository: https://github.com/AlexHCJP/herdsman
+homepage: https://github.com/AlexHCJP/herdsman
+issue_tracker: https://github.com/AlexHCJP/herdsman/issues
 
 environment:
   sdk: ^3.10.4
