@@ -9,3 +9,7 @@
 ## 1.0.0
 
 - create delete cmd 
+
+## 1.0.1
+
+- change version flutter
