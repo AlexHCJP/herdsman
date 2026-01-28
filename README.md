@@ -38,7 +38,7 @@ dart run herdsman [flags] [arguments]
 | `-h, --help` | Print usage information |
 | `-v, --verbose` | Show additional command output |
 | `-i, --init` | Initialize git hooks directory structure |
-| `-ac, --active` | Activate herdsman added git hooks |
+| `-A, --active` | Activate herdsman added git hooks |
 | `-a, --add` | Add git hooks |
 | `-d, --delete` | Delete git hooks |
 | `--version` | Print the tool version |
@@ -50,13 +50,13 @@ dart run herdsman [flags] [arguments]
 Initialize the `.herdsman/githooks` directory and configure Git to use it:
 
 ```bash
-dart run herdsman -i
+dart run herdsman --init
 ```
 
 With verbose output:
 
 ```bash
-dart run herdsman -i -v
+dart run herdsman --init -verbose
 ```
 
 **What it does:**
@@ -70,19 +70,13 @@ dart run herdsman -i -v
 Add Git hooks:
 
 ```bash
-dart run herdsman -a <hook-name>
+dart run herdsman --add <hook-name>
 ```
 
 Example:
 
 ```bash
-dart run herdsman -a pre-commit pre-merge
-```
-
-With verbose output:
-
-```bash
-dart run herdsman -a pre-commit -v
+dart run herdsman --add pre-commit pre-merge
 ```
 
 **What it does:**
@@ -97,13 +91,7 @@ dart run herdsman -a pre-commit -v
 Activate all existing Git hooks in the herdsman directory:
 
 ```bash
-dart run herdsman -ac
-```
-
-With verbose output:
-
-```bash
-dart run herdsman -ac -v
+dart run herdsman --active
 ```
 
 **What it does:**
@@ -116,20 +104,15 @@ dart run herdsman -ac -v
 Delete specific Git hooks:
 
 ```bash
-dart run herdsman -d <hook-name>
+dart run herdsman --delete <hook-name>
 ```
 
 Example:
 
 ```bash
-dart run herdsman -d pre-commit pre-push
+dart run herdsman --delete pre-commit pre-push
 ```
 
-With verbose output:
-
-```bash
-dart run herdsman -d pre-commit -v
-```
 
 **What it does:**
 - 🗑️ Converts active hooks to `.sample` files
@@ -155,23 +138,15 @@ After initialization, your repository will have:
 
 1. **Initialize herdsman:**
    ```bash
-   dart run herdsman -i -v
+   dart run herdsman --init
    ```
 
 2. **Add a pre-commit hook:**
    ```bash
-   dart run herdsman -a pre-commit -v
+   dart run herdsman --add pre-commit
    ```
 
 3. **Activate all hooks:**
    ```bash
-   dart run herdsman -ac -v
+   dart run herdsman --active
    ```
-
-### Quick Setup
-
-Initialize and activate in one go:
-
-```bash
-dart run herdsman -i
-```

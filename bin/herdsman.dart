@@ -28,7 +28,7 @@ ArgParser buildParser() {
     )
     ..addFlag(
       'active',
-      abbr: 'ac',
+      abbr: 'A',
       negatable: false,
       help: 'Activate herdsman git hooks.',
     )

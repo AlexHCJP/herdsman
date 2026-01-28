@@ -13,3 +13,7 @@
 ## 1.0.1
 
 - change version flutter
+
+## 1.0.2
+
+- fix problem flag
