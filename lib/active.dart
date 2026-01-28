@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:herdsman/utils/consts.dart';
 import 'package:herdsman/utils/hooks.dart';
 
+/// Activates all git hooks by setting the core.hooksPath and making hook files executable.
+/// If any error occurs during the process, it writes the error to stderr and exits with code 1.
 void active(bool verbose) {
   final result = Process.runSync('git', [
     'config',
@@ -15,7 +17,7 @@ void active(bool verbose) {
     exit(1);
   }
 
-  for (final hook in getGitHooks()) {
+  for (final hook in [...getHooks(), ...deactiveHooks()]) {
     final file = File(hook);
     if (file.existsSync()) {
       final result = Process.runSync('chmod', ['+x', hook], runInShell: true);

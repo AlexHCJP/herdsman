@@ -36,10 +36,11 @@ dart run herdsman [flags] [arguments]
 | Flag | Description |
 |------|-------------|
 | `-h, --help` | Print usage information |
-| `-v, --verbose` | Show additional command output with emoji indicators |
+| `-v, --verbose` | Show additional command output |
 | `-i, --init` | Initialize git hooks directory structure |
-| `-c, --active` | Activate herdsman git hooks |
-| `-a, --apply` | Apply git hooks from samples |
+| `-ac, --active` | Activate herdsman added git hooks |
+| `-a, --add` | Add git hooks |
+| `-d, --delete` | Delete git hooks |
 | `--version` | Print the tool version |
 
 ## 🎯 Commands
@@ -64,9 +65,9 @@ dart run herdsman -i -v
 - ⚙️ Configures Git to use `.herdsman/githooks` as hooks path
 - ❌ Validates that you're in a Git repository
 
-### Apply Git Hooks
+### Add Git Hooks
 
-Apply Git hooks from sample files:
+Add Git hooks:
 
 ```bash
 dart run herdsman -a <hook-name>
@@ -85,31 +86,55 @@ dart run herdsman -a pre-commit -v
 ```
 
 **What it does:**
-- 🔨 Creates git hook from `.sample` file
+- 🔨 Creates git hook files
 - ✍️ Writes shebang and error handling
 - 📄 Creates the hook file
-- 🗑️ Removes the sample file
 - ⚠️ Skips if hook already exists
-- ✅ Active hook
+- ✅ Activates the hook
 
-### Activate applies Git Hooks
+### Activate Git Hooks
 
 Activate all existing Git hooks in the herdsman directory:
 
 ```bash
-dart run herdsman -c
+dart run herdsman -ac
 ```
 
 With verbose output:
 
 ```bash
-dart run herdsman -c -v
+dart run herdsman -ac -v
 ```
 
 **What it does:**
 - ⚙️ Configures Git hooks path
 - ✅ Makes all hook files executable
 - 🎉 Confirms when all hooks are activated
+
+### Delete Git Hooks
+
+Delete specific Git hooks:
+
+```bash
+dart run herdsman -d <hook-name>
+```
+
+Example:
+
+```bash
+dart run herdsman -d pre-commit pre-push
+```
+
+With verbose output:
+
+```bash
+dart run herdsman -d pre-commit -v
+```
+
+**What it does:**
+- 🗑️ Converts active hooks to `.sample` files
+- 📄 Preserves hook content for later use
+- 🔒 Prevents the hook from executing
 
 ## 📂 Directory Structure
 
@@ -118,9 +143,9 @@ After initialization, your repository will have:
 ```
 .herdsman/
 └── githooks/
-    ├── pre-commit
-    ├── pre-push
-    ├── commit-msg
+    ├── pre-commit        # Active hook
+    ├── pre-push   
+    ├── commit-msg.sample # Sample hook (not active)
     └── ... (other hooks)
 ```
 
@@ -133,14 +158,14 @@ After initialization, your repository will have:
    dart run herdsman -i -v
    ```
 
-2. **Apply a pre-commit hook:**
+2. **Add a pre-commit hook:**
    ```bash
    dart run herdsman -a pre-commit -v
    ```
 
 3. **Activate all hooks:**
    ```bash
-   dart run herdsman -c -v
+   dart run herdsman -ac -v
    ```
 
 ### Quick Setup

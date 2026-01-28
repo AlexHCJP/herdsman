@@ -1,6 +1,6 @@
-
 import 'dart:io';
 
+/// Recursively copies the contents of [src] directory to [dst] directory.
 void copyDir(Directory src, Directory dst) {
   if (!dst.existsSync()) {
     dst.createSync(recursive: true);

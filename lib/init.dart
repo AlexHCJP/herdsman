@@ -3,8 +3,10 @@ import 'dart:io';
 import 'package:herdsman/utils/consts.dart';
 import 'package:herdsman/utils/copy_dir.dart';
 
-
-
+/// Initializes the herdsman git hooks directory by copying existing hooks
+/// from the .git/hooks directory and setting the git core.hooksPath.
+/// If the herdsman directory already exists, it prompts the user for confirmation
+/// before replacing it.
 void init(bool verbose) async {
   final dir = Directory(Consts.herdsmanDirPath);
 
@@ -13,7 +15,9 @@ void init(bool verbose) async {
     if (verbose) print('📁 Creating ${Consts.herdsmanDirPath} directory...');
   } else {
     while (true) {
-      print('🔄 Replace git hooks directory to ${Consts.herdsmanDirPath}? [Y/N]');
+      print(
+        '🔄 Replace git hooks directory to ${Consts.herdsmanDirPath}? [Y/N]',
+      );
       final response = stdin.readLineSync();
       if (response == null) continue;
       if (response.toLowerCase() == 'n') {
@@ -33,7 +37,9 @@ void init(bool verbose) async {
   }
 
   copyDir(gitHooksDir, Directory(Consts.herdsmanDirPath));
-  if (verbose) print('✅ Copied existing git hooks to ${Consts.herdsmanDirPath}');
+  if (verbose) {
+    print('✅ Copied existing git hooks to ${Consts.herdsmanDirPath}');
+  }
 
   final result = await Process.run('git', [
     'config',

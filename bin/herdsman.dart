@@ -1,9 +1,10 @@
 import 'package:args/args.dart';
 import 'package:herdsman/active.dart';
-import 'package:herdsman/apply.dart';
+import 'package:herdsman/add.dart';
+import 'package:herdsman/delete.dart';
 import 'package:herdsman/init.dart';
 
-const String version = '0.0.1';
+const String version = '1.0.0';
 
 ArgParser buildParser() {
   return ArgParser()
@@ -25,9 +26,14 @@ ArgParser buildParser() {
       negatable: false,
       help: 'Initialize git hooks.',
     )
-    ..addFlag('active',
-        abbr: 'c', negatable: false, help: 'Activate herdsman git hooks.')
-    ..addFlag('apply', abbr: 'a', negatable: false, help: 'Apply git hooks.')
+    ..addFlag(
+      'active',
+      abbr: 'ac',
+      negatable: false,
+      help: 'Activate herdsman git hooks.',
+    )
+    ..addFlag('add', abbr: 'a', negatable: false, help: 'Add git hooks.')
+    ..addFlag('delete', abbr: 'd', negatable: false, help: 'Delete git hooks.')
     ..addFlag('version', negatable: false, help: 'Print the tool version.');
 }
 
@@ -56,14 +62,19 @@ void main(List<String> arguments) {
       print('herdsman version: $version');
       return;
     }
-    if (results.flag('apply')) {
-      applyMulti(results.rest, verbose);
+    if (results.flag('add')) {
+      addMulti(results.rest, verbose);
+      return;
+    }
+    if (results.flag('delete')) {
+      deleteMulti(results.rest, verbose);
+      return;
     }
     if (results.flag('init')) {
       init(verbose);
       return;
     }
-    if(results.flag('active')) {
+    if (results.flag('active')) {
       active(verbose);
       return;
     }
