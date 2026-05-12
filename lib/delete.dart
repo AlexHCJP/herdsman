@@ -15,8 +15,9 @@ void delete({required String hookName, bool verbose = false}) {
     );
     hookFile.deleteSync();
     sampleFile.createSync();
-    if (verbose)
+    if (verbose) {
       stdout.writeln('📄 Created sample git hook file: $hookName.sample');
+    }
     stdout.writeln('✅ Deleted git hook: $hookName');
   } else {
     stdout.writeln('⚠️ Git hook $hookName does not exist. Skipping...');

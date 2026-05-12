@@ -18,9 +18,9 @@ Future<void> add({required String hookName, bool verbose = false}) async {
     file.createSync();
     if (verbose) stdout.writeln('📄 Created git hook file: $hookName');
     hookFile.deleteSync();
-    if (verbose)
+    if (verbose) {
       stdout.writeln('🗑️ Deleting sample git hook: $hookName.sample');
-
+    }
     stdout.writeln('✅ Add git hook: $hookName');
   } else {
     stdout.writeln('⚠️ Git hook $hookName already exists. Skipping...');
