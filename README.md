@@ -4,7 +4,7 @@
 
 ![Pub Version](https://img.shields.io/pub/v/herdsman)
 ![License](https://img.shields.io/github/license/AlexHCJP/herdsman)
-![Stars](https://img.shields.io/github/stars/AlexHCJP/depend)
+![Stars](https://img.shields.io/github/stars/AlexHCJP/herdsman)
 
 A Dart command-line tool for managing Git hooks in your repository. Herdsman simplifies the process of initializing, applying, and activating Git hooks by organizing them in a dedicated `.herdsman/githooks` directory.
 
