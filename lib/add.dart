@@ -14,9 +14,13 @@ Future<void> add({required String hookName, bool verbose = false}) async {
       return;
     }
     final file = hookFile.copySync('${Consts.herdsmanDirPath}/$hookName');
-    if (verbose) stdout.writeln('🔨 Creating git hook: $hookName');
+    if (verbose) {
+      stdout.writeln('🔨 Creating git hook: $hookName');
+    }
     file.createSync();
-    if (verbose) stdout.writeln('📄 Created git hook file: $hookName');
+    if (verbose) {
+      stdout.writeln('📄 Created git hook file: $hookName');
+    }
     hookFile.deleteSync();
     if (verbose) {
       stdout.writeln('🗑️ Deleting sample git hook: $hookName.sample');

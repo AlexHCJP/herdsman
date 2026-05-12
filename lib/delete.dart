@@ -9,7 +9,9 @@ void delete({required String hookName, bool verbose = false}) {
   final hookFile = File('${Consts.herdsmanDirPath}/$hookName');
 
   if (hookFile.existsSync()) {
-    if (verbose) stdout.writeln('🗑️ Deleted git hook file: $hookName');
+    if (verbose) {
+      stdout.writeln('🗑️ Deleted git hook file: $hookName');
+    }
     final sampleFile = hookFile.copySync(
       '${Consts.herdsmanDirPath}/$hookName.sample',
     );

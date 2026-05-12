@@ -12,8 +12,9 @@ Future<void> init({bool verbose = false}) async {
 
   if (!dir.existsSync()) {
     dir.createSync(recursive: true);
-    if (verbose)
+    if (verbose) {
       stdout.writeln('📁 Creating ${Consts.herdsmanDirPath} directory...');
+    }
   } else {
     while (true) {
       stdout.writeln(
@@ -47,8 +48,9 @@ Future<void> init({bool verbose = false}) async {
     'core.hooksPath',
     Consts.herdsmanDirPath,
   ]);
-  if (verbose)
+  if (verbose) {
     stdout.writeln('⚙️ Setting git hooks path to ${Consts.herdsmanDirPath}');
+  }
 
   if (result.exitCode != 0) {
     stderr.write(result.stderr);
