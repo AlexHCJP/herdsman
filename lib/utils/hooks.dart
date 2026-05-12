@@ -24,13 +24,9 @@ const hooks = [
 ];
 
 /// Returns the list of active git hook file paths
-List<String> getHooks() {
-  return hooks.map((value) => '${Consts.herdsmanDirPath}/$value').toList();
-}
+List<String> getHooks() =>
+    hooks.map((value) => '${Consts.herdsmanDirPath}/$value').toList();
 
 /// Returns the list of deactivated git hook file paths
-List<String> deactiveHooks() {
-  return hooks
-      .map((value) => '${Consts.herdsmanDirPath}/$value.deactive')
-      .toList();
-}
+List<String> deactiveHooks() =>
+    hooks.map((value) => '${Consts.herdsmanDirPath}/$value.deactive').toList();

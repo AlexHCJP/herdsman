@@ -5,7 +5,7 @@ import 'package:herdsman/utils/hooks.dart';
 
 /// Activates all git hooks by setting the core.hooksPath and making hook files executable.
 /// If any error occurs during the process, it writes the error to stderr and exits with code 1.
-void active(bool verbose) {
+void active({bool verbose = false}) {
   final result = Process.runSync('git', [
     'config',
     'core.hooksPath',
@@ -26,9 +26,9 @@ void active(bool verbose) {
         stderr.write(result.stderr);
         exit(1);
       } else {
-        print('✅ Activated git hook: $hook');
+        stdout.writeln('✅ Activated git hook: $hook');
       }
     }
   }
-  print('🎉 All git hooks are activated.');
+  stdout.writeln('🎉 All git hooks are activated.');
 }

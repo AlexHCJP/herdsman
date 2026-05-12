@@ -7,15 +7,16 @@ import 'package:herdsman/utils/copy_dir.dart';
 /// from the .git/hooks directory and setting the git core.hooksPath.
 /// If the herdsman directory already exists, it prompts the user for confirmation
 /// before replacing it.
-void init(bool verbose) async {
+Future<void> init({bool verbose = false}) async {
   final dir = Directory(Consts.herdsmanDirPath);
 
   if (!dir.existsSync()) {
     dir.createSync(recursive: true);
-    if (verbose) print('📁 Creating ${Consts.herdsmanDirPath} directory...');
+    if (verbose)
+      stdout.writeln('📁 Creating ${Consts.herdsmanDirPath} directory...');
   } else {
     while (true) {
-      print(
+      stdout.writeln(
         '🔄 Replace git hooks directory to ${Consts.herdsmanDirPath}? [Y/N]',
       );
       final response = stdin.readLineSync();
@@ -30,7 +31,7 @@ void init(bool verbose) async {
 
   final gitHooksDir = Directory('.git/hooks');
   if (!gitHooksDir.existsSync()) {
-    print(
+    stderr.writeln(
       '❌ No .git/hooks directory found. Are you sure this is a git repository?',
     );
     exit(1);
@@ -38,7 +39,7 @@ void init(bool verbose) async {
 
   copyDir(gitHooksDir, Directory(Consts.herdsmanDirPath));
   if (verbose) {
-    print('✅ Copied existing git hooks to ${Consts.herdsmanDirPath}');
+    stdout.writeln('✅ Copied existing git hooks to ${Consts.herdsmanDirPath}');
   }
 
   final result = await Process.run('git', [
@@ -46,7 +47,8 @@ void init(bool verbose) async {
     'core.hooksPath',
     Consts.herdsmanDirPath,
   ]);
-  if (verbose) print('⚙️ Setting git hooks path to ${Consts.herdsmanDirPath}');
+  if (verbose)
+    stdout.writeln('⚙️ Setting git hooks path to ${Consts.herdsmanDirPath}');
 
   if (result.exitCode != 0) {
     stderr.write(result.stderr);

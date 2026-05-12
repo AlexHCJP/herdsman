@@ -1,4 +1,10 @@
+![Frame](screenshots/contributors.png)
+
 # 🐑 Herdsman
+
+![Pub Version](https://img.shields.io/pub/v/herdsman)
+![License](https://img.shields.io/github/license/AlexHCJP/herdsman)
+![Stars](https://img.shields.io/github/stars/AlexHCJP/depend)
 
 A Dart command-line tool for managing Git hooks in your repository. Herdsman simplifies the process of initializing, applying, and activating Git hooks by organizing them in a dedicated `.herdsman/githooks` directory.
 
@@ -12,17 +18,29 @@ A Dart command-line tool for managing Git hooks in your repository. Herdsman sim
 
 ## 🚀 Installation
 
-Add herdsman to your project:
+### In a project (as dev dependency)
+
+```shell
+dart pub add -d herdsman
+```
+
+Or manually in `pubspec.yaml`:
 
 ```yaml
 dev_dependencies:
-  herdsman: version
+  herdsman: ^1.0.2
 ```
 
-or command
+### Globally
 
 ```shell
-dart pub add herdsman
+dart pub global activate herdsman
+```
+
+Then run as:
+
+```shell
+herdsman [flags] [arguments]
 ```
 
 ## 📖 Usage
