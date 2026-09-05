@@ -2,9 +2,41 @@
 
 # 🐑 Herdsman
 
-![Pub Version](https://img.shields.io/pub/v/herdsman)
-![License](https://img.shields.io/github/license/AlexHCJP/herdsman)
-![Stars](https://img.shields.io/github/stars/AlexHCJP/herdsman)
+<div align="center">
+  <a href="https://pub.dev/packages/herdsman">
+    <img src="https://img.shields.io/pub/v/herdsman?label=Pub&logo=dart" alt="Pub Package" />
+  </a>
+  <a href="https://pub.dev/packages/herdsman">
+    <img src="https://img.shields.io/pub/likes/herdsman?style=flat&logo=dart&label=Likes" alt="Pub Likes" />
+  </a>
+  <a href="https://pub.dev/packages/herdsman/score">
+    <img src="https://img.shields.io/pub/points/herdsman?label=Score&logo=dart" alt="Pub Score" />
+  </a>
+  <a href="https://pub.dev/packages/herdsman">
+    <img src="https://img.shields.io/pub/dm/herdsman?style=flat&color=blue&logo=dart&label=Downloads" alt="Pub Monthly Downloads" />
+  </a>
+  <a href="https://github.com/AlexHCJP/herdsman">
+    <img src="https://img.shields.io/github/stars/AlexHCJP/herdsman?style=flat&logo=github&colorB=deeppink&label=Stars" alt="Star on Github" />
+  </a>
+  <a href="https://github.com/AlexHCJP/herdsman">
+    <img src="https://img.shields.io/github/forks/AlexHCJP/herdsman?color=orange&label=Forks&logo=github" alt="Forks on Github" />
+  </a>
+  <a href="https://github.com/AlexHCJP/herdsman/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/AlexHCJP/herdsman?style=flat&logo=github&colorB=yellow&label=Contributors" alt="Contributors" />
+  </a>
+  <a href="https://github.com/AlexHCJP/herdsman/issues">
+    <img src="https://img.shields.io/github/issues/AlexHCJP/herdsman?label=Issues&logo=github&color=purple" alt="Issues" />
+  </a>
+  <a href="https://github.com/AlexHCJP/herdsman">
+    <img src="https://img.shields.io/github/languages/code-size/AlexHCJP/herdsman?logo=github&color=blue&label=Size" alt="Code size" />
+  </a>
+  <a href="https://github.com/AlexHCJP/herdsman/blob/HEAD/LICENSE">
+    <img src="https://img.shields.io/github/license/AlexHCJP/herdsman?label=License&color=red&logo=Leanpub" alt="License" />
+  </a>
+  <a href="https://pub.dev/packages/herdsman">
+    <img src="https://img.shields.io/badge/Platform-Android%20%7C%20iOS%20%7C%20macOS%20%7C%20Windows%20%7C%20Linux-blue.svg?logo=flutter" alt="Platform" />
+  </a>
+</div>
 
 A Dart command-line tool for managing Git hooks in your repository. Herdsman simplifies the process of initializing, applying, and activating Git hooks by organizing them in a dedicated `.herdsman/githooks` directory.
 
